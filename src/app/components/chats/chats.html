@@ -1,1 +1,20 @@
-<p>chats works!</p>
+<section class="chats">
+  <h2><i class="fas fa-comments"></i> Recent Chats</h2>
+
+  <div *ngIf="chatSessions.length > 0; else emptyState">
+    <ul class="chat-list">
+      <li *ngFor="let chat of chatSessions">
+        <h3>{{ chat.topic }}</h3>
+        <p>{{ chat.lastMessage }}</p>
+        <small>{{ chat.date | date:'short' }}</small>
+        <button (click)="resumeChat(chat.id)">
+          <i class="fas fa-arrow-right"></i> Resume
+        </button>
+      </li>
+    </ul>
+  </div>
+
+  <ng-template #emptyState>
+    <p>No chats yet. Start a new one and it’ll show up here!</p>
+  </ng-template>
+</section>

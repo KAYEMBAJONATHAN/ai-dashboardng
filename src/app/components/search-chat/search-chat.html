@@ -1,1 +1,30 @@
-<p>search-chat works!</p>
+<section class="search-chat">
+  <h2><i class="fas fa-search"></i> Search Your Chats</h2>
+
+  <form (ngSubmit)="searchChats()" #searchForm="ngForm">
+    <input
+      type="text"
+      name="query"
+      [(ngModel)]="searchQuery"
+      required
+      placeholder="Search by topic, keyword, or date..."
+    />
+    <button type="submit" [disabled]="!searchForm.form.valid">
+      <i class="fas fa-search"></i> Search
+    </button>
+  </form>
+
+  <div *ngIf="results.length > 0" class="results">
+    <h3>Results</h3>
+    <ul>
+      <li *ngFor="let chat of results">
+        <strong>{{ chat.topic }}</strong> — {{ chat.date | date:'mediumDate' }}
+        <p>{{ chat.preview }}</p>
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="results.length === 0 && searched">
+    <p>No chats found for "<strong>{{ searchQuery }}</strong>".</p>
+  </div>
+</section>

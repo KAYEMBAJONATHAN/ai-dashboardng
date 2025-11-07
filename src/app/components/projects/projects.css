@@ -1,0 +1,36 @@
+.projects {
+  max-width: 700px;
+  margin: auto;
+  padding: 1rem;
+}
+
+.projects h2 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.project-list {
+  list-style: none;
+  padding: 0;
+}
+
+.project-list li {
+  background: #f9f9f9;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.project-list h3 {
+  margin: 0 0 0.5rem;
+}
+
+.project-list p {
+  margin: 0 0 0.5rem;
+  color: #555;
+}
+
+.project-list small {
+  color: #888;
+}

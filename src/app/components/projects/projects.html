@@ -1,1 +1,17 @@
-<p>projects works!</p>
+<section class="projects">
+  <h2><i class="fas fa-tasks"></i> Your Projects</h2>
+
+  <div *ngIf="projects.length > 0; else emptyState">
+    <ul class="project-list">
+      <li *ngFor="let project of projects">
+        <h3>{{ project.name }}</h3>
+        <p>{{ project.description }}</p>
+        <small>Last updated: {{ project.updated | date:'mediumDate' }}</small>
+      </li>
+    </ul>
+  </div>
+
+  <ng-template #emptyState>
+    <p>No active projects yet. Start building something awesome!</p>
+  </ng-template>
+</section>
