@@ -1,1 +1,38 @@
-<p>navbar works!</p>
+<div class="app-container">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="logo">
+      <img src="assets/logo.png" alt="AI Logo">
+      <span>AI Dashboard</span>
+    </div>
+
+    <h5>Welcome to AI Dashboard</h5>
+
+   <nav class="menu">
+  <ul>
+    <li><a routerLink="/new-chat" routerLinkActive="active"><i class="fas fa-plus"></i> New Chat</a></li>
+    <li><a routerLink="/search" routerLinkActive="active"><i class="fas fa-search"></i> Search Chat</a></li>
+    <li><a routerLink="/library" routerLinkActive="active"><i class="fas fa-book"></i> Library</a></li>
+    <li><a routerLink="/projects" routerLinkActive="active"><i class="fas fa-tasks"></i> Projects</a></li>
+    <li><a routerLink="/chats" routerLinkActive="active"><i class="fas fa-comments"></i> Chats</a></li>
+  </ul>
+</nav>
+
+    <button class="close-sidebar">⨉</button>
+  </aside>
+
+  <!-- Main content area -->
+  <main class="main-content">
+    <header class="top-bar">
+      <input type="text" placeholder="Search..." class="search-bar">
+      <div class="user-actions">
+        <button class="theme-toggle">🌙</button>
+        <button class="settings">⚙️</button>
+      </div>
+    </header>
+
+    <section class="chat-area">
+      <router-outlet></router-outlet>
+    </section>
+  </main>
+</div>
