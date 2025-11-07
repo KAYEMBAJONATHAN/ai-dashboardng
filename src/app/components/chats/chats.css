@@ -1,0 +1,45 @@
+.chats {
+  max-width: 700px;
+  margin: auto;
+  padding: 1rem;
+}
+
+.chats h2 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.chat-list {
+  list-style: none;
+  padding: 0;
+}
+
+.chat-list li {
+  background: #f9f9f9;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.chat-list h3 {
+  margin: 0 0 0.5rem;
+}
+
+.chat-list p {
+  margin: 0 0 0.5rem;
+  color: #555;
+}
+
+.chat-list small {
+  color: #888;
+}
+
+.chat-list button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+}

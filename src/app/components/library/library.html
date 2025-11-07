@@ -1,1 +1,17 @@
-<p>library works!</p>
+<section class="library">
+  <h2><i class="fas fa-book"></i> Your Chat Library</h2>
+
+  <div *ngIf="libraryItems.length > 0; else emptyState">
+    <ul class="library-list">
+      <li *ngFor="let item of libraryItems">
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.summary }}</p>
+        <small>{{ item.date | date:'mediumDate' }}</small>
+      </li>
+    </ul>
+  </div>
+
+  <ng-template #emptyState>
+    <p>No saved chats yet. Start a new conversation and save it to your library!</p>
+  </ng-template>
+</section>

@@ -1,1 +1,40 @@
-<p>new-chat works!</p>
+<section class="new-chat">
+  <h2><i class="fas fa-comments"></i> Chat with AI </h2>
+
+  <form *ngIf="!chatStarted" (ngSubmit)="startChat()" #chatForm="ngForm">
+    <label for="topic">Pick a topic</label>
+    <input
+      type="text"
+      id="topic"
+      name="topic"
+      [(ngModel)]="chatTopic"
+      required
+      placeholder="type your topic here..."
+    />
+    <button type="submit" [disabled]="!chatForm.form.valid">
+      <i class="fas fa-rocket"></i> Start Chat
+    </button>
+  </form>
+
+  <div *ngIf="chatStarted" class="chat-window">
+    <div class="chat-history">
+      <div *ngFor="let msg of messages" [ngClass]="msg.sender">
+        <p>{{ msg.text }}</p>
+        <span class="timestamp">{{ msg.timestamp | date:'shortTime' }}</span>
+      </div>
+    </div>
+
+    <form (ngSubmit)="sendMessage()" #msgForm="ngForm" class="chat-input">
+      <input
+        type="text"
+        name="userMessage"
+        [(ngModel)]="userMessage"
+        required
+        placeholder="Ask me anything..."
+      />
+      <button type="submit" [disabled]="!msgForm.form.valid">
+        <i class="fas fa-paper-plane"></i>
+      </button>
+    </form>
+  </div>
+</section>
