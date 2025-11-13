@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { AiService } from '../../services/aiService';
 
 @Component({
   selector: 'app-new-chat',
@@ -16,6 +17,7 @@ export class NewChatComponent {
   userMessage = '';
   messages: { sender: 'user' | 'bot'; text: string; timestamp: Date }[] = [];
 
+  constructor(private aiService: AiService) { }
   startChat() {
     this.chatStarted = true;
     this.messages = [
@@ -35,6 +37,16 @@ export class NewChatComponent {
       text: this.userMessage,
       timestamp: new Date()
     });
+
+    this.aiService.getBotReply(this.userMessage).subscribe(res => {
+      console.log('Full response:', JSON.stringify(res));
+      this.messages.push({
+        sender: 'bot',
+        text: res.reply, // ✅ Extract the actual reply string
+        timestamp: new Date()
+      });
+    });
+    this.userMessage = '';
 
     const botReply = this.generateCopilotStyleReply(this.userMessage);
     setTimeout(() => {

@@ -18,7 +18,6 @@ export class SearchChatComponent {
   searchChats() {
     this.searched = true;
 
-    // Simulated search logic — replace with real backend call
     const mockChats = [
       { topic: 'AI in healthcare', date: new Date('2025-10-01'), preview: 'We discussed AI diagnostics and patient data.' },
       { topic: 'Docker Compose tips', date: new Date('2025-09-15'), preview: 'You asked about service dependencies and health checks.' }
